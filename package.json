@@ -10,9 +10,15 @@
     "test": "plasmo test"
   },
   "dependencies": {
+    "@plasmohq/messaging": "^0.5.0",
+    "@plasmohq/storage": "^1.8.0",
+    "antd": "^5.9.0",
+    "axios": "^1.5.0",
     "plasmo": "0.83.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-confetti-explosion": "^2.1.2",
+    "react-dom": "18.2.0",
+    "styled-components": "^6.0.8"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.0",
@@ -24,6 +30,17 @@
     "typescript": "5.2.2"
   },
   "manifest": {
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "assets/pic-calendar_bomb.png",
+          "@react-confetti-explosion/lib/index.js"
+        ],
+        "matches": [
+          "https://web.whatsapp.com/*"
+        ]
+      }
+    ],
     "host_permissions": [
       "https://*/*"
     ]
