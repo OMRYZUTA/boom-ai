@@ -29,8 +29,11 @@ jobs:
         run: pnpm build
       - name: Package the extension into a zip artifact
         run: pnpm build --zip
-      - name: Browser Platform Publish
-        uses: PlasmoHQ/bpp@v3
+      - name: Upload & release
+        uses: mnao305/chrome-extension-upload@v4.0.1
         with:
-          keys: ${{ secrets.SUBMIT_KEYS }}
-          artifact: build/chrome-mv3-prod.zip
+          file-path: build/chrome-mv3-prod.zip
+          extension-id: ahedhabgadddclliengdcgilejjkklpf
+          client-id: ${{ secrets.CLIENT_ID }}
+          client-secret: ${{ secrets.CLIENT_SECRET }}
+          refresh-token: ${{ secrets.REFRESH_TOKEN }}
