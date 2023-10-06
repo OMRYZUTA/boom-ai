@@ -34,7 +34,7 @@ jobs:
         uses: mnao305/chrome-extension-upload@v4.0.1
         with:
           file-path: build/chrome-mv3-prod.zip
-          extension-id: ${{env.EXTENSION_ID}}
+          extension-id: ahedhabgadddclliengdcgilejjkklpf
           client-id: ${{ secrets.CLIENT_ID }}
           client-secret: ${{ secrets.CLIENT_SECRET }}
           refresh-token: ${{ secrets.REFRESH_TOKEN }}
