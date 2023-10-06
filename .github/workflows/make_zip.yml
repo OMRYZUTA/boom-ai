@@ -2,11 +2,12 @@ name: "Submit to Web Store"
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: production
     steps:
       - uses: actions/checkout@v3
       - name: Cache pnpm modules
