@@ -15,12 +15,14 @@ const StyledCol = styled(Col)`
 function IndexPopup() {
   return (
     <>
-      <Row>
+      <div style={{ height: "100px", width: "100px" }}
+      ></div>
+      {/* <Row>
         <StyledCol span={24}>
           <Title>Boom AI</Title>
           <CustomTabs />
         </StyledCol>
-      </Row>
+      </Row> */}
     </>
   );
 }

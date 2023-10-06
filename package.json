@@ -10,6 +10,7 @@
     "test": "plasmo test"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.2.6",
     "@plasmohq/messaging": "^0.5.0",
     "@plasmohq/storage": "^1.8.0",
     "antd": "^5.9.0",
@@ -30,10 +31,14 @@
     "typescript": "5.2.2"
   },
   "manifest": {
+    "permissions": [
+      "contextMenus"
+    ],
     "web_accessible_resources": [
       {
         "resources": [
           "assets/pic-calendar_bomb.png",
+          "assets/pic-*",
           "@react-confetti-explosion/lib/index.js"
         ],
         "matches": [

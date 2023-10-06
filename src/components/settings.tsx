@@ -9,6 +9,7 @@ function Settings() {
   const [storedUserName, setStoredUserName] = useStorage<string>("userName", "");
   const [storedUserEmail, setStoredUserEmail] = useStorage<string>("userEmail", "");
   const [storedUserPrompt, setStoredUserPrompt] = useStorage<string>("userPrompt", "");
+  
   const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
@@ -37,6 +38,9 @@ function Settings() {
           <Button onClick={() => setEditMode(true)}>Edit</Button>
         </>
       ) : (
+          <> 
+            <Title level={4}>Settings</Title>
+            <p>Enter your name and your active mail to use Boom. All your meetings and summaries will be sent to this mail </p>
         <Form form={form} onFinish={onFinish}>
           <Form.Item label="Name" name="userName" rules={[{ required: true, message: "Please input your name!" }]}>
             <Input />
@@ -53,7 +57,8 @@ function Settings() {
           <Form.Item>
             <Button type="primary" htmlType="submit">Save</Button>
           </Form.Item>
-        </Form>
+            </Form>
+            </>
       )}
     </>
   );

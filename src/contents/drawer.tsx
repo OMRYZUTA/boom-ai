@@ -2,12 +2,10 @@ import type {
     PlasmoCSConfig,
     PlasmoCSUIProps,
 } from "plasmo";
-import {useState, useEffect, FC} from "react";
-import {Layout, Row, Col, Button, Drawer, Collapse} from "antd";
+import {useState, FC} from "react";
+import {Layout, Row, Button, Drawer, Collapse} from "antd";
 import CustomTabs from "../components/tabs";
-
-const {Footer} = Layout;
-const {Panel} = Collapse;
+import LogoIcon from "data-base64:~assets/pic-icon.png";
 
 export const config: PlasmoCSConfig = {
     matches: ["https://web.whatsapp.com/*"],
@@ -20,12 +18,12 @@ const PlasmoOverlay: FC<PlasmoCSUIProps> = () => {
         <Row>
             <Button
                 onClick={() => setIsOpen(!isOpen)}
+                style={logoStyle}
             >
-                Boom
             </Button>
             {isOpen &&
                 <Drawer
-                    title="Boom"
+                    title=""
                     placement="left"
                     closable={false}
                     mask={false}
@@ -38,6 +36,21 @@ const PlasmoOverlay: FC<PlasmoCSUIProps> = () => {
         </Row>
     );
 };
+
+const logoStyle = {
+            borderRadius: "50%",
+            backgroundImage: `url('${LogoIcon}')`,
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+            backgroundColor: 'transparent',
+            width: "40px",
+            height: "40px",
+    border: 'none',
+    cursor: 'pointer',
+
+    }
+
 
 export default PlasmoOverlay;
   
