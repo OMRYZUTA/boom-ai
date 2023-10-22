@@ -9,7 +9,7 @@ import type {
   import ConfettiExplosion from 'react-confetti-explosion';
 
   export const config: PlasmoCSConfig = {
-    matches: ["https://web.whatsapp.com/*"],
+    matches: [      "https://*/*"  ],
   }
   
   export const getRootContainer = () =>

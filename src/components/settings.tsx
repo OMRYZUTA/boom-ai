@@ -50,9 +50,9 @@ function Settings() {
             <Input />
           </Form.Item>
 
-          <Form.Item label={<Tooltip title="You can write here what kind of summaries you want.">Prompt</Tooltip>} name="userPrompt">
+          {/* <Form.Item label={<Tooltip title="You can write here what kind of summaries you want.">Prompt</Tooltip>} name="userPrompt">
             <Input.TextArea rows={4} />
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item>
             <Button type="primary" htmlType="submit">Save</Button>

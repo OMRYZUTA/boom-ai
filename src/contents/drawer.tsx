@@ -8,7 +8,7 @@ import CustomTabs from "../components/tabs";
 import LogoIcon from "data-base64:~assets/pic-icon.png";
 
 export const config: PlasmoCSConfig = {
-    matches: ["https://web.whatsapp.com/*"],
+    matches: ["https://*/*"],
 };
 
 const PlasmoOverlay: FC<PlasmoCSUIProps> = () => {

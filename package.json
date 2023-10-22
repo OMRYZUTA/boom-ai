@@ -2,7 +2,7 @@
   "name": "boom-ai",
   "displayName": "Boom ai",
   "version": "1.0.1",
-  "description": "Boost your WhatsApp with Boom! Summarize chats, email meetings, and get message suggestions. Powered by GPT",
+  "description": "Boost your Productivity with Boom! Summarize chats, email meetings, and get message suggestions. Powered by GPT",
   "author": "Omry Zuta",
   "scripts": {
     "dev": "plasmo dev",
@@ -42,7 +42,7 @@
           "@react-confetti-explosion/lib/index.js"
         ],
         "matches": [
-          "https://web.whatsapp.com/*"
+          "https://*/*"
         ]
       }
     ],

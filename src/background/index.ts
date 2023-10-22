@@ -77,17 +77,82 @@ const addOnclickFunctionality = () => {
 export const postSummary = async (req) => {
     const [name, mail] = await fetchUserInfo()
     console.log({ name, mail })
-    const response = await fetch('http://localhost:4004/summarize', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            name,
-            messages: req.body.text,
-            mail,
-            summaryType: req.body.summaryType
-        }),
-    })
+    console.log("env var :" + process.env.PLASMO_PUBLIC_SHOULD_POST_TO_BACKEND)
+    let response;
+    if (process.env.PLASMO_PUBLIC_SHOULD_POST_TO_BACKEND == "true") {
+        response = await fetch(`${process.env.PLASMO_PUBLIC_BOOM_BACKEND_HOST}/summarize`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                name,
+                messages: req.body.text,
+                mail,
+                summaryType: req.body.summaryType
+            }),
+        })
+    } else {
+        response = genersteMockResponse(req.body.summaryType)
+    }
+
     return response
+}
+
+const genersteMockResponse = (summaryType) => {
+    let response;
+    switch (summaryType) {
+        case "meeting":
+            response = {
+                json: async () => {
+                    return new Promise(reso => {
+                        return {
+                            "content": { "title": "Meeting Planning", "hour": "1410", "date": "20220914", "summary": "Planning a meeting with Omry." },
+                            "summary_type": "meeting",
+                            "id": "12213dsf",
+                            "timestamp": "2023-10-22T18:40:45.464974Z"
+                        }
+                    })
+                }
+
+            }
+            break;
+        case "suggestion":
+            response = {
+                json: () => {
+                    return new Promise(reso => {
+                        return {
+                            content
+                                :
+                                "תודה על העדכון.",
+                            id
+                                :
+                                "d208d053-d155-4e0f-b580-f30eb072f3b7",
+                            summary_type
+                                :
+                                "suggestion",
+                            timestamp
+                                :
+                                "2023-10-22T18:40:45.464974Z"
+                        }
+                    })
+                }
+            }
+            break;
+        case "task":
+            response = {
+                json: () => {
+                    return new Promise(reso => {
+                        return {
+                            "content": { "title": "Script for sending messages", "people": "Omry Zuta, Eran, Boaz", "hour": "21:40", "date": "22/10/2023", "summary": "Omry wrote a script for sending messages every minute to a group and wants to confirm if it's okay to activate it. Eran connected Omry with Boaz to discuss further.", "action_item": "awaiting confirmation from Boaz" },
+                            "summary_type": "task",
+                            "id": "12213dsf",
+                            "timestamp": "2023-10-22T18:40:45.464974Z"
+                        }
+                    })
+                }
+            }
+            break;
+    }
+    return response;
 }
